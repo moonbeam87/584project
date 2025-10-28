@@ -1,0 +1,136 @@
+// Point Netlist Generated on: Oct 27 19:54:57 2025
+// Generated for: spectre
+// Design Netlist Generated on: Oct 27 19:54:56 2025
+// Design library name: ece584_final_project
+// Design cell name: ro
+// Design view name: schematic
+simulator lang=spectre
+global 0 VDD! VSS! VCN! VCP!
+parameters W
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_bip
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_mim
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_dnw
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_18
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_bip_npn
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfrtmom
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_mos_cap_25
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_18
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_disres
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_res
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_na
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfmos_33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_hvt
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfmvar
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfmos_18
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_na
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_na33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_lvt
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfres_sa
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_na33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_esd
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfmim
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_25od33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_25od33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_mos_cap
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_25
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_25ud18
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_25
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfmos
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_25ud18
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_na25od33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfjvar
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfmos_25
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_rtmom
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_na25od33
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_dio_na25
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfres_rpo
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_hvt
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfind
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/spectre/crn65gplus_2d5_lk_v1d0.scs" section=tt_rfmvar_25
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_na25
+include "/ece498hk/libs/T65GP_RFMIM_2fF_1P0V_2P5V_1p9m_6X1Z1U_ALRDL_OA61_PDK/tsmcN65/../models/T-N65-CM-SP-006_core/CMN65GPLUS_2d5_lk_v1d4.scs" section=tt_lvt
+
+// Library name: tsmc065_rvt_stdcells
+// Cell name: AND2X1MA10TR
+// View name: schematic
+subckt AND2X1MA10TR A B Y inh_ground inh_power
+    MPA1 (INT A inh_power inh_power) pch l=60n w=250.0n m=1 nf=1 \
+        sd=220.0n ad=4.875e-14 as=4.875e-14 pd=890.0n ps=890.0n \
+        nrd=0.44 nrs=0.44 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    MPA106 (Y INT inh_power inh_power) pch l=60n w=700n m=1 nf=1 \
+        sd=220.0n ad=1.365e-13 as=1.365e-13 pd=1.79u ps=1.79u \
+        nrd=0.157143 nrs=0.157143 sa=195.00n sb=195.00n sca=0 scb=0 \
+        scc=0
+    MPA2 (INT B inh_power inh_power) pch l=60n w=250.0n m=1 nf=1 \
+        sd=220.0n ad=4.875e-14 as=4.875e-14 pd=890.0n ps=890.0n \
+        nrd=0.44 nrs=0.44 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    MNA1 (INT A N1 inh_ground) nch l=60n w=305.00n m=1 nf=1 sd=220.0n \
+        ad=5.9475e-14 as=5.9475e-14 pd=1u ps=1u nrd=0.360656 \
+        nrs=0.360656 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    MNA2 (N1 B inh_ground inh_ground) nch l=60n w=305.00n m=1 nf=1 \
+        sd=220.0n ad=5.9475e-14 as=5.9475e-14 pd=1u ps=1u nrd=0.360656 \
+        nrs=0.360656 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    MNA104 (Y INT inh_ground inh_ground) nch l=60n w=530.0n m=1 nf=1 \
+        sd=220.0n ad=1.0335e-13 as=1.0335e-13 pd=1.45u ps=1.45u \
+        nrd=0.207547 nrs=0.207547 sa=195.00n sb=195.00n sca=0 scb=0 \
+        scc=0
+ends AND2X1MA10TR
+// End of subcircuit definition.
+
+// Library name: ece584_final_project
+// Cell name: inv_width_sweep
+// View name: schematic
+subckt inv_width_sweep A VCN! VCP! VDD! VSS! Y
+    MPA1 (Y A n1__ VDD!) pch l=60n w=700n m=1 nf=1 sd=220.0n \
+        ad=1.365e-13 as=1.365e-13 pd=1.79u ps=1.79u nrd=0.157143 \
+        nrs=0.157143 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    M5 (VSS! VCP! n2__ VSS!) pch l=60n w=W*1 m=1 nf=1 sd=220.0n \
+        ad=((1-int(1/2)*2)*(1.95e-07+((1-1)*2.2e-07)/2+0)+(1+1-int((1+1)/2)*2)*((1/2)*2.2e-07))*W \
+        as=((1-int(1/2)*2)*(1.95e-07+((1-1)*2.2e-07)/2+0)+(1+1-int((1+1)/2)*2)*(1.95e-07+1.95e-07+(1/2-1)*2.2e-07+0+0))*W \
+        pd=(1-int(1/2)*2)*((1.95e-07+((1-1)*2.2e-07)/2+0)*2+(1+1)*W)+(1+1-int((1+1)/2)*2)*(((1/2)*2.2e-07)*2+1*W) \
+        ps=(1-int(1/2)*2)*((1.95e-07+((1-1)*2.2e-07)/2+0)*2+(1+1)*W)+(1+1-int((1+1)/2)*2)*((1.95e-07+1.95e-07+(1/2-1)*2.2e-07+0+0)*2+(1+2)*W) \
+        nrd=(1-int(1/2)*2)*(1.1e-07*1.1e-07/(1.1e-07+1.1e-07*(1-1))/W)+(1+1-int((1+1)/2)*2)*(1.1e-07/1/W) \
+        nrs=(1-int(1/2)*2)*(1.1e-07*1.1e-07/(1.1e-07+1.1e-07*(1-1))/W)+(1+1-int((1+1)/2)*2)*(1.1e-07*1.1e-07*1.1e-07/(1.1e-07*1.1e-07*(1-2)+1.1e-07*(1.1e-07+1.1e-07))/W) \
+        sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    M0 (VSS! Y n2__ VSS!) pch l=60n w=320.0n m=1 nf=1 sd=220.0n \
+        ad=6.24e-14 as=6.24e-14 pd=1.03u ps=1.03u nrd=0.34375 \
+        nrs=0.34375 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    M4 (VDD! VCN! n1__ VSS!) nch l=60n w=W*1 m=1 nf=1 sd=220.0n \
+        ad=((1-int(1/2)*2)*(1.95e-07+((1-1)*2.2e-07)/2+0)+(1+1-int((1+1)/2)*2)*((1/2)*2.2e-07))*W \
+        as=((1-int(1/2)*2)*(1.95e-07+((1-1)*2.2e-07)/2+0)+(1+1-int((1+1)/2)*2)*(1.95e-07+1.95e-07+(1/2-1)*2.2e-07+0+0))*W \
+        pd=(1-int(1/2)*2)*((1.95e-07+((1-1)*2.2e-07)/2+0)*2+(1+1)*W)+(1+1-int((1+1)/2)*2)*(((1/2)*2.2e-07)*2+1*W) \
+        ps=(1-int(1/2)*2)*((1.95e-07+((1-1)*2.2e-07)/2+0)*2+(1+1)*W)+(1+1-int((1+1)/2)*2)*((1.95e-07+1.95e-07+(1/2-1)*2.2e-07+0+0)*2+(1+2)*W) \
+        nrd=(1-int(1/2)*2)*(1.1e-07*1.1e-07/(1.1e-07+1.1e-07*(1-1))/W)+(1+1-int((1+1)/2)*2)*(1.1e-07/1/W) \
+        nrs=(1-int(1/2)*2)*(1.1e-07*1.1e-07/(1.1e-07+1.1e-07*(1-1))/W)+(1+1-int((1+1)/2)*2)*(1.1e-07*1.1e-07*1.1e-07/(1.1e-07*1.1e-07*(1-2)+1.1e-07*(1.1e-07+1.1e-07))/W) \
+        sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    M1 (VDD! Y n1__ VSS!) nch l=60n w=320.0n m=1 nf=1 sd=220.0n \
+        ad=6.24e-14 as=6.24e-14 pd=1.03u ps=1.03u nrd=0.34375 \
+        nrs=0.34375 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+    MNA1 (Y A n2__ VSS!) nch l=60n w=360.0n m=1 nf=1 sd=220.0n \
+        ad=7.02e-14 as=7.02e-14 pd=1.11u ps=1.11u nrd=0.305556 \
+        nrs=0.305556 sa=195.00n sb=195.00n sca=0 scb=0 scc=0
+ends inv_width_sweep
+// End of subcircuit definition.
+
+// Library name: ece584_final_project
+// Cell name: ro
+// View name: schematic
+I7 (net3 en out VSS! VDD!) AND2X1MA10TR
+I5 (net1 VCN! VCP! VDD! VSS! net2) inv_width_sweep
+I6 (net2 VCN! VCP! VDD! VSS! net3) inv_width_sweep
+I0 (out VCN! VCP! VDD! VSS! net1) inv_width_sweep
+simulatorOptions options psfversion="1.4.0" reltol=1e-3 vabstol=1e-6 \
+    iabstol=1e-12 temp=27 tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 \
+    maxnotes=5 maxwarns=5 digits=5 cols=80 pivrel=1e-3 \
+    sensfile="../psf/sens.output" checklimitdest=psf 
+modelParameter info what=models where=rawfile
+element info what=inst where=rawfile
+outputParameter info what=output where=rawfile
+designParamVals info what=parameters where=rawfile
+primitives info what=primitives where=rawfile
+subckts info what=subckts where=rawfile
+saveOptions options save=allpub
