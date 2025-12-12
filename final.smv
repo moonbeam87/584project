@@ -1,0 +1,133 @@
+
+MODULE main
+
+VAR
+    -- 1. SYSTEM INPUTS (The Environment)
+    -- We model 3 asynchronous oscillators. 
+    -- They are boolean inputs that the model checker can toggle at will.
+    osc_clk0 : boolean;
+    osc_clk1 : boolean;
+    osc_clk2 : boolean;
+
+    -- 2. CONFIGURATION (Selectors)
+    -- 3-bit Select for Oscillator, 3-bit Select for Divider
+    sel_osc : 0..2;
+    sel_div : 0..7;
+
+    -- 3. HARDWARE STATE
+    -- The counter is 8-bit (matching your logic [7:0] div_clk)
+    -- We simulate a byte (0..255)
+    div_counter : 0..255; 
+
+    -- Internal "Shadow" register to detect Rising Edges
+    prev_selected_osc : boolean;
+    
+    -- Glitchless Mux State (The internal latches)
+    -- We need to remember the enable state for the 3 Oscillators and 8 Dividers
+    mux_osc_latches : array 0..2 of boolean;
+    mux_div_latches : array 0..7 of boolean;
+
+--=============================================================================
+-- LOGIC IMPLEMENTATION
+--=============================================================================
+
+ASSIGN
+    next(sel_osc) := sel_osc;
+    next(sel_div) := sel_div;
+    next(mux_osc_latches[0]) := (!osc_clk0) ? (sel_osc = 0) : mux_osc_latches[0];
+    next(mux_osc_latches[1]) := (!osc_clk1) ? (sel_osc = 1) : mux_osc_latches[1];
+    next(mux_osc_latches[2]) := (!osc_clk2) ? (sel_osc = 2) : mux_osc_latches[2];
+
+DEFINE
+
+    selected_osc_clk := (osc_clk0 & mux_osc_latches[0]) | 
+                        (osc_clk1 & mux_osc_latches[1]) | 
+                        (osc_clk2 & mux_osc_latches[2]);
+
+                        
+
+ASSIGN
+    --=============================
+    -- CLOCK DIVIDER
+    --=============================
+
+    -- Edge Detection: The counter registers only update on the RISING edge of selected_osc_clk
+    init(prev_selected_osc) := FALSE;
+    next(prev_selected_osc) := selected_osc_clk;
+
+    -- Counter Logic:
+    -- If Rising Edge detected -> Increment
+    -- Else -> Hold value
+    init(div_counter) := 0;
+    next(div_counter) := 
+        (!prev_selected_osc & selected_osc_clk) ? (div_counter + 1) mod 256 : div_counter;
+
+DEFINE
+    -- Extract bits for the divider wires (matches: assign div_clk[i] = counter[i])
+    -- word1 is a built-in to extract bit 0, word1(c >> 1) extracts bit 1, etc.
+    -- Or simpler using Modulo math for readability:
+    div_wire0 := (div_counter mod 2) = 1;         -- Bit 0
+    div_wire1 := (div_counter / 2 mod 2) = 1;     -- Bit 1
+    div_wire2 := (div_counter / 4 mod 2) = 1;     -- Bit 2
+    div_wire3 := (div_counter / 8 mod 2) = 1;     -- Bit 3
+    div_wire4 := (div_counter / 16 mod 2) = 1;    -- Bit 4
+    div_wire5 := (div_counter / 32 mod 2) = 1;    -- Bit 5
+    div_wire6 := (div_counter / 64 mod 2) = 1;    -- Bit 6
+    div_wire7 := (div_counter / 128 mod 2) = 1;   -- Bit 7
+
+ASSIGN
+    --=============================
+    -- MUX 2: DIVIDER SELECTION
+    --=============================
+    
+    -- Same Glitchless Latch Logic for the 8 divider wires
+    next(mux_div_latches[0]) := (!div_wire0) ? (sel_div = 0) : mux_div_latches[0];
+    next(mux_div_latches[1]) := (!div_wire1) ? (sel_div = 1) : mux_div_latches[1];
+    next(mux_div_latches[2]) := (!div_wire2) ? (sel_div = 2) : mux_div_latches[2];
+    next(mux_div_latches[3]) := (!div_wire3) ? (sel_div = 3) : mux_div_latches[3];
+    next(mux_div_latches[4]) := (!div_wire4) ? (sel_div = 4) : mux_div_latches[4];
+    next(mux_div_latches[5]) := (!div_wire5) ? (sel_div = 5) : mux_div_latches[5];
+    next(mux_div_latches[6]) := (!div_wire6) ? (sel_div = 6) : mux_div_latches[6];
+    next(mux_div_latches[7]) := (!div_wire7) ? (sel_div = 7) : mux_div_latches[7];
+
+DEFINE
+    -- Final Output Combination
+    CLK_out := (div_wire0 & mux_div_latches[0]) |
+               (div_wire1 & mux_div_latches[1]) |
+               (div_wire2 & mux_div_latches[2]) |
+               (div_wire3 & mux_div_latches[3]) |
+               (div_wire4 & mux_div_latches[4]) |
+               (div_wire5 & mux_div_latches[5]) |
+               (div_wire6 & mux_div_latches[6]) |
+               (div_wire7 & mux_div_latches[7]);
+
+--=============================================================================
+-- CONSTRAINTS & SPECIFICATIONS
+--=============================================================================
+
+-- FAIRNESS: The Environment
+-- We must promise the model checker that the input oscillators actually oscillate.
+-- Without this, the checker will just set osc_clk0 = FALSE forever and say "Look, logic failed."
+FAIRNESS (osc_clk0)
+FAIRNESS (!osc_clk0)
+FAIRNESS (osc_clk1)
+FAIRNESS (!osc_clk1)
+FAIRNESS (osc_clk2)
+FAIRNESS (!osc_clk2)
+
+-- SPEC 1: LIVENESS
+-- "Does the output eventually become TRUE?"
+-- This proves the entire chain (Osc -> Mux -> Div -> Mux -> Out) is connected and working.
+SPEC AF CLK_out
+
+-- SPEC 2: OSCILLATION
+-- "If the clock is High, will it eventually go Low? If Low, eventually High?"
+-- This proves we aren't stuck at 1 or stuck at 0.
+SPEC AG (CLK_out -> AF !CLK_out)
+SPEC AG (!CLK_out -> AF CLK_out)
+
+-- SPEC 3: CONDITIONAL CORRECTNESS
+-- "If we select Divider 3, do we eventually get a signal?"
+SPEC AG (sel_div = 3 -> AF CLK_out)
+
+
